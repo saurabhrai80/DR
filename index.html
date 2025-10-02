@@ -3,82 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Analytical · CFD · Multiphysics Services — Saurabh Rai</title>
-  <meta name="description" content="Freelance engineering services: analytical modelling, CFD simulations, multiphysics coupling, FEA automation and Abaqus plugins. Contact for quotes." />
+  <title>Simulation Gallery — Saurabh Rai</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">SR</div>
-        <div>
-          <h1>Saurabh Rai — Engineering Simulation & Analysis</h1>
-          <p class="lead">Analytical models • CFD • Multiphysics • FEA automation • Abaqus plugins</p>
-        </div>
-      </div>
-      <nav>
-        <a href="contact-us.html">Contact</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="https://www.researchgate.net/profile/Saurabh-Rai-7" target="_blank">ResearchGate</a>
-        <a href="https://www.linkedin.com/in/saurabh-rai-80/" target="_blank">LinkedIn</a>
-      </nav>
-    </header>
+  <header>
+    <div class="logo">SR</div>
+    <h1>Engineering Simulation & Analysis</h1>
+    <nav>
+      <a href="index.html">Gallery</a>
+      <a href="services.html">Services</a>
+      <a href="contact-us.html">Contact</a>
+      <a href="https://www.researchgate.net/profile/Saurabh-Rai-7" target="_blank">ResearchGate</a>
+      <a href="https://www.linkedin.com/in/saurabh-rai-80/" target="_blank">LinkedIn</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-      <div class="left panel">
-        <h2>Convert complex physics into practical solutions</h2>
-        <p class="lead">I deliver freelance projects that blend analytical rigor with numerical simulations — helping startups and OEMs validate designs, find root causes, and reduce prototyping cycles.</p>
-
-        <div class="kpis">
-          <div class="k"><div class="n">10+</div><div class="muted">Years experience</div></div>
-          <div class="k"><div class="n">50+</div><div class="muted">Projects completed</div></div>
-          <div class="k"><div class="n">3</div><div class="muted">Journal publications</div></div>
-        </div>
-
-        <div style="margin-top:14px">
-          <a class="btn btn-primary" href="mailto:saurabhrai80@gmail.com?subject=Quote%20request">Request a quote</a>
-          <a class="btn btn-ghost" href="contact-us.html" style="margin-left:8px">Open contact form</a>
-        </div>
-      </div>
-    </section>
-	</section>
-
-  <section id="gallery" class="gallery">
+  <section class="hero">
     <h2>Simulation Gallery</h2>
-    <div class="gallery-grid">
-      <div class="card">
-        <h3>Lasser Bending Simulation</h3>
-        <img src="Lasser_bending.gif" alt="Lasser Bending Simulation">
-      </div>
-      <div class="card">
-        <h3>Gasket Pressure Simulation</h3>
-        <img src="Pressure_gasket.gif" alt="Pressure Gasket Simulation">
-      </div>
-	<div class="card">
-        <h3>Metal- Rubber interaction</h3>
-        <img src="Rubber_climbing.gif" alt="Metal-Rubber interaction">
-      </div>
-	<div class="card">
-        <h3>Rubber Bush</h3>
-        <img src="Bush_pre_tension.gif" alt="Rubber Bush">
-      </div>
+    <p>Explore animations from Finite Element Analysis, CFD, and Multiphysics projects.</p>
+  </section>
+
+  <section id="gallery" class="gallery-grid">
+    <div class="card">
+      <h3>Lasser Bending Simulation</h3>
+      <img src="Lasser_bending.gif" alt="Lasser Bending Simulation">
+    </div>
+    <div class="card">
+      <h3>Gasket Pressure Simulation</h3>
+      <img src="Pressure_gasket.gif" alt="Pressure Gasket Simulation">
+    </div>
+    <div class="card">
+      <h3>Metal-Rubber Interaction</h3>
+      <img src="Rubber_climbing.gif" alt="Metal-Rubber Interaction">
+    </div>
+    <div class="card">
+      <h3>Rubber Bush Pre-Tension</h3>
+      <img src="Bush_pre_tension.gif" alt="Rubber Bush Simulation">
     </div>
   </section>
 
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>© Saurabh Rai — Simulation & Analysis • <a href="mailto:saurabhrai80@gmail.com" style="color:var(--muted)">saurabhrai80@gmail.com</a></div>
-        <div class="social">
-          <a href="https://www.researchgate.net/profile/Saurabh-Rai-7" target="_blank">ResearchGate</a>
-          <a href="https://www.linkedin.com/in/saurabh-rai-80/" target="_blank">LinkedIn</a>
-        </div>
-      </div>
-	  
-	  
-    </footer>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="expanded simulation">
+    <p id="lightbox-caption"></p>
   </div>
+
+  <footer>
+    <p>© 2025 Saurabh Rai • <a href="mailto:saurabhrai80@gmail.com">saurabhrai80@gmail.com</a></p>
+  </footer>
 </body>
 </html>
-
