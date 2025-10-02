@@ -65,10 +65,10 @@ const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeSmdfrLdy0HOipX
 // Record WhatsApp or Email clicks
 function recordClick(source) {
   const formData = new FormData();
-  formData.append('entry.YOUR_SOURCE_ID', source); // Source field ID
-  formData.append('entry.YOUR_NAME_ID', '');       // Optional
-  formData.append('entry.YOUR_EMAIL_ID', '');      // Optional
-  formData.append('entry.YOUR_MESSAGE_ID', '');    // Optional
+  //formData.append('entry.YOUR_SOURCE_ID', source); // Source field ID
+  formData.append('entry.Name', '');       // Optional
+  formData.append('entry.Email', '');      // Optional
+  formData.append('entry.Mssge', '');    // Optional
 
   fetch(googleFormURL, { method: 'POST', body: formData, mode: 'no-cors' });
 }
@@ -93,5 +93,6 @@ form.addEventListener('submit', function(e) {
 
 </body>
 </html>
+
 
 
