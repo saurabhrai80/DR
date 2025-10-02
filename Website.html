@@ -1,0 +1,184 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DR Solution - Simulation Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    nav {
+      background: #e6e6e6;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+    section {
+      padding: 2em;
+      background: white;
+      margin: 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    h2 {
+      color: #003366;
+    }
+    .query-box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+    .query-box input, .query-box textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .query-box button {
+      background: #25D366;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .media-box {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+    .media-box img, .media-box video {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>DR Solution</h1>
+  <p>Simulation Services: Structural | CFD | Multiphysics</p>
+</header>
+
+<nav>
+  <a href="#structural">Home</a>
+  <a href="#structural">Structural</a>
+  <a href="#cfd">CFD</a>
+  <a href="#multiphysics">Multiphysics</a>
+  <a href="#query">Query</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="structural">
+  <h2>Structural Simulations</h2>
+  <ul>
+    <li>Metals</li>
+    <li>Failure Modes</li>
+    <li>Thermal Analysis</li>
+    <li>Fatigue</li>
+    <li>Creep</li>
+    <li>Gas Turbine Application (Real Products)</li>
+	<li>Gasket</li>
+    <li>Rubber</li>
+    <li>Plastic</li>
+  </ul>
+  <div class="media-box">
+    <img src="simulation1.jpg" alt="Simulation Example">
+    <video controls src="simulation1.mp4"></video>
+  </div>
+</section>
+
+<section id="cfd">
+  <h2>CFD Analysis</h2>
+  <ul>
+    <li>FSI</li>
+	<li>Laminar Flow</li>
+	<li>Turbulent Flow</li>
+  </ul>
+  <div class="media-box">
+    <img src="cfd1.jpg" alt="CFD Sample">
+    <video controls src="cfd1.mp4"></video>
+  </div>
+</section>
+
+<section id="multiphysics">
+  <h2>Multiphysics</h2>
+  <p>Coupled thermal-structural and fluid-structure interaction simulations.</p>
+  <div class="media-box">
+    <img src="multi1.jpg" alt="Multiphysics Sim">
+    <video controls src="multi1.mp4"></video>
+  </div>
+</section>
+
+<section id="query">
+  <h2>Drop Your Query</h2>
+  <p style="text-align:center;">We usually reply within <strong>3–4 hours</strong> via WhatsApp.</p>
+  <div class="query-box">
+    <form onsubmit="sendToWhatsApp(); return false;">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="query">Your Query:</label>
+      <textarea id="query" rows="4" required></textarea>
+
+      <button type="submit">Send on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About DR Solution</h2>
+  <p>We provide specialized simulation solutions for structural mechanics, fluid dynamics, and coupled physics problems. With real-world product simulation expertise (like gas turbines), we help clients achieve validated, cost-effective results.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📧 Email: <a href="mailto:your@email.com">divyasingh97365@gmail.com</a></p>
+  <p>📱 WhatsApp: <a href="https://wa.me/919956538864" target="_blank">Click to Chat</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 DR Solution. All Rights Reserved.</p>
+</footer>
+
+<script>
+function sendToWhatsApp() {
+  var name = document.getElementById("name").value;
+  var query = document.getElementById("query").value;
+  var message = Hello, I am ${name}. My query is: ${query};
+  var phone = "919956538864";  // Replace with your WhatsApp business number
+  var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
