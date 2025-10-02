@@ -5,81 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Saurabh Rai</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #333;
-    }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a.active {
-      text-decoration: underline;
-    }
-    section.contact {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 5px 0;
-      color: #fff;
-      background: #007bff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; }
+    header { background: #222; color: #fff; padding: 20px; text-align: center; }
+    header .logo { font-size: 24px; font-weight: bold; }
+    nav a { color: #fff; margin: 0 10px; text-decoration: none; font-weight: bold; }
+    nav a.active { text-decoration: underline; }
+    section.contact { max-width: 600px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    h2 { text-align: center; margin-bottom: 20px; }
+    .btn { display: inline-block; padding: 12px 20px; margin: 5px 0; color: #fff; background: #007bff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; text-align: center; }
     .btn.whatsapp { background: #25D366; }
     .btn.email { background: #0072c6; }
-    .contact-form input, 
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-    .contact-form button {
-      width: 100%;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      color: #fff;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 600px) {
-      .btn { width: 100%; }
-    }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+    .contact-form button { width: 100%; }
+    footer { text-align: center; padding: 20px; background: #222; color: #fff; margin-top: 40px; }
+    @media (max-width: 600px) { .btn { width: 100%; } }
   </style>
 </head>
 <body>
@@ -99,16 +38,19 @@
   <p>For collaborations, freelance projects, or consultancy, choose any option below:</p>
 
   <!-- WhatsApp Button -->
-  <a href="https://wa.me/919876543210?text=Hello%20Saurabh" target="_blank" class="btn whatsapp">💬 WhatsApp Me</a>
+  <a href="https://wa.me/919876543210?text=Hello%20Saurabh" 
+     class="btn whatsapp" target="_blank" onclick="recordQuery('WhatsApp')">💬 WhatsApp Me</a>
 
   <!-- Email Button -->
-  <a href="mailto:saurabhrai80@gmail.com" class="btn email">📧 Email Me</a>
+  <a href="mailto:saurabhrai80@gmail.com" 
+     class="btn email" onclick="recordQuery('Email')">📧 Email Me</a>
 
-  <!-- Google Form Submission -->
+  <!-- Contact Form -->
   <form id="contact-form" class="contact-form">
-    <input type="text" name="entry.123456789" placeholder="Your Name" required>
-    <input type="email" name="entry.234567890" placeholder="Your Email" required>
-    <textarea name="entry.345678901" rows="5" placeholder="Your Message" required></textarea>
+    <input type="text" name="entry.YOUR_NAME_ID" placeholder="Your Name" required>
+    <input type="email" name="entry.YOUR_EMAIL_ID" placeholder="Your Email" required>
+    <textarea name="entry.YOUR_MESSAGE_ID" rows="5" placeholder="Your Message" required></textarea>
+    <input type="hidden" name="entry.YOUR_SOURCE_ID" id="form-source" value="Form">
     <button type="submit" class="btn">Send Message</button>
   </form>
 </section>
@@ -118,23 +60,32 @@
 </footer>
 
 <script>
-const form = document.getElementById("contact-form");
-form.addEventListener("submit", function(e) {
+const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSfgt64CKYUDo9wyNmUl1Rb-oUtanCFZMl6awSzYPoAOSI2CxQ/formResponse";
+
+// Function to record WhatsApp or Email clicks
+function recordQuery(source) {
+  const formData = new FormData();
+  formData.append('entry.YOUR_SOURCE_ID', source); // Replace with your Source field entry ID
+  formData.append('entry.YOUR_NAME_ID', '');       // Optional: leave empty
+  formData.append('entry.YOUR_EMAIL_ID', '');      // Optional: leave empty
+  formData.append('entry.YOUR_MESSAGE_ID', '');    // Optional: leave empty
+
+  fetch(googleFormURL, { method: 'POST', body: formData, mode: 'no-cors' });
+}
+
+// Handle normal form submission
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', function(e) {
   e.preventDefault();
-
+  document.getElementById('form-source').value = 'Form'; // Mark as form submission
   const formData = new FormData(form);
-  const googleFormURL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"; // Replace with your Google Form ID
 
-  fetch(googleFormURL, {
-    method: "POST",
-    body: formData,
-    mode: "no-cors"
-  }).then(() => {
-    alert("Message sent and saved successfully!");
-    form.reset();
-  }).catch(err => {
-    alert("Error submitting form: " + err);
-  });
+  fetch(googleFormURL, { method: 'POST', body: formData, mode: 'no-cors' })
+    .then(() => {
+      alert('Message sent and saved successfully!');
+      form.reset();
+    })
+    .catch(err => { alert('Error submitting form: ' + err); });
 });
 </script>
 
