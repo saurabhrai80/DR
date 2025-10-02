@@ -19,19 +19,37 @@
 
   <section class="contact">
     <h2>Get in Touch</h2>
-    <p>For collaborations, freelance projects, or consultancy, email me:</p>
-    <a href="mailto:saurabhrai80@gmail.com" class="btn">📧 Email Me</a>
+    <p>For collaborations, freelance projects, or consultancy, send me a WhatsApp message:</p>
+    
+    <!-- Direct WhatsApp button -->
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn">💬 Chat on WhatsApp</a>
 
-    <form action="mailto:saurabhrai80@gmail.com" method="post" enctype="text/plain" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send</button>
+    <!-- Form to pre-fill WhatsApp message -->
+    <form id="whatsappForm" class="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send via WhatsApp</button>
     </form>
   </section>
 
   <footer>
     <p>© 2025 Saurabh Rai</p>
   </footer>
+
+  <script>
+    document.getElementById("whatsappForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let message = document.getElementById("message").value;
+
+      let phoneNumber = "919454645810"; // 🔹 Replace with your WhatsApp number (with country code)
+      let text = `Hello Saurabh,%0A%0AMy Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+      let url = `https://wa.me/${phoneNumber}?text=${text}`;
+
+      window.open(url, "_blank");
+    });
+  </script>
 </body>
 </html>
