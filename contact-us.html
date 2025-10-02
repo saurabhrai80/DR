@@ -1,9 +1,121 @@
-<form id="contact-form">
-  <input type="text" name="entry.123456789" placeholder="Your Name" required>
-  <input type="email" name="entry.234567890" placeholder="Your Email" required>
-  <textarea name="entry.345678901" rows="5" placeholder="Your Message" required></textarea>
-  <button type="submit" class="btn">Send</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Saurabh Rai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a.active {
+      text-decoration: underline;
+    }
+    section.contact {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 5px 0;
+      color: #fff;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn.whatsapp { background: #25D366; }
+    .btn.email { background: #0072c6; }
+    .contact-form input, 
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .contact-form button {
+      width: 100%;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">SR</div>
+  <h1>Contact Me</h1>
+  <nav>
+    <a href="index.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="contact-us.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<section class="contact">
+  <h2>Get in Touch</h2>
+  <p>For collaborations, freelance projects, or consultancy, choose any option below:</p>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919876543210?text=Hello%20Saurabh" target="_blank" class="btn whatsapp">💬 WhatsApp Me</a>
+
+  <!-- Email Button -->
+  <a href="mailto:saurabhrai80@gmail.com" class="btn email">📧 Email Me</a>
+
+  <!-- Google Form Submission -->
+  <form id="contact-form" class="contact-form">
+    <input type="text" name="entry.123456789" placeholder="Your Name" required>
+    <input type="email" name="entry.234567890" placeholder="Your Email" required>
+    <textarea name="entry.345678901" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Saurabh Rai</p>
+</footer>
 
 <script>
 const form = document.getElementById("contact-form");
@@ -11,17 +123,20 @@ form.addEventListener("submit", function(e) {
   e.preventDefault();
 
   const formData = new FormData(form);
-  const googleFormURL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"; // replace
+  const googleFormURL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"; // Replace with your Google Form ID
 
   fetch(googleFormURL, {
     method: "POST",
     body: formData,
     mode: "no-cors"
   }).then(() => {
-    alert("Message saved and sent!");
+    alert("Message sent and saved successfully!");
     form.reset();
   }).catch(err => {
     alert("Error submitting form: " + err);
   });
 });
 </script>
+
+</body>
+</html>
