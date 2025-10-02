@@ -1,56 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Saurabh Rai</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <div class="logo">SR</div>
-    <h1>Contact Me</h1>
-    <nav>
-      <a href="index.html">Gallery</a>
-      <a href="services.html">Services</a>
-      <a href="contact-us.html" class="active">Contact</a>
-    </nav>
-  </header>
+<script>
+const form = document.getElementById("contact-form");
+form.addEventListener("submit", function(e) {
+  e.preventDefault(); // prevent default form submit
 
-  <section class="contact">
-    <h2>Get in Touch</h2>
-    <p>For collaborations, freelance projects, or consultancy, send me a WhatsApp message:</p>
-    
-    <!-- Direct WhatsApp button -->
-    <a href="https://wa.me/919454645810" target="_blank" class="btn">💬 Chat on WhatsApp</a>
+  const formData = new FormData(form);
+  const actionURL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"; // replace with your Form ID
 
-    <!-- Form to pre-fill WhatsApp message -->
-    <form id="whatsappForm" class="contact-form">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send via WhatsApp</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Saurabh Rai</p>
-  </footer>
-
-  <script>
-    document.getElementById("whatsappForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      let name = document.getElementById("name").value;
-      let email = document.getElementById("email").value;
-      let message = document.getElementById("message").value;
-
-      let phoneNumber = "919454645810"; // 🔹 Replace with your WhatsApp number (with country code)
-      let text = `Hello Saurabh,%0A%0AMy Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-      let url = `https://wa.me/${phoneNumber}?text=${text}`;
-
-      window.open(url, "_blank");
-    });
-  </script>
-</body>
-</html>
-
+  fetch(actionURL, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors"
+  }).then(() => {
+    alert("Message sent successfully!");
+    form.reset();
+  }).catch(err => {
+    alert("Error submitting form: " + err);
+  });
+});
+</script>
