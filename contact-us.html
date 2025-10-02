@@ -1,17 +1,24 @@
+<form id="contact-form">
+  <input type="text" name="entry.123456789" placeholder="Your Name" required>
+  <input type="email" name="entry.234567890" placeholder="Your Email" required>
+  <textarea name="entry.345678901" rows="5" placeholder="Your Message" required></textarea>
+  <button type="submit" class="btn">Send</button>
+</form>
+
 <script>
 const form = document.getElementById("contact-form");
 form.addEventListener("submit", function(e) {
-  e.preventDefault(); // prevent default form submit
+  e.preventDefault();
 
   const formData = new FormData(form);
-  const actionURL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"; // replace with your Form ID
+  const googleFormURL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"; // replace
 
-  fetch(actionURL, {
+  fetch(googleFormURL, {
     method: "POST",
     body: formData,
     mode: "no-cors"
   }).then(() => {
-    alert("Message sent successfully!");
+    alert("Message saved and sent!");
     form.reset();
   }).catch(err => {
     alert("Error submitting form: " + err);
