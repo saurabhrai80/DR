@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Saurabh Rai</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
+  header { background:#222; color:#fff; padding:20px; text-align:center; }
+  header .logo { font-size:24px; font-weight:bold; }
+  nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:bold; }
+  nav a.active { text-decoration:underline; }
+  section.contact { max-width:900px; margin:40px auto; padding:20px; background:#fff; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+  h2 { text-align:center; margin-bottom:20px; }
+  .btn { display:inline-block; padding:12px 20px; margin:10px 5px; color:#fff; border:none; border-radius:5px; cursor:pointer; text-decoration:none; text-align:center; }
+  .btn.whatsapp { background:#25D366; }
+  .btn.email { background:#0072c6; }
+  footer { text-align:center; padding:20px; background:#222; color:#fff; margin-top:40px; }
+  @media (max-width:600px) { .btn { width:100%; margin:10px 0; } iframe { height:1000px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">SR</div>
+  <h1>Contact Me</h1>
+  <nav>
+    <a href="index.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="contact-us.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<section class="contact">
+  <h2>Get in Touch</h2>
+  <p>For collaborations, freelance projects, or consultancy, choose any option below:</p>
+
+  <!-- Quick Contact Buttons -->
+  <div style="text-align:center;">
+    <a href="https://wa.me/919876543210?text=Hello%20Saurabh" class="btn whatsapp" target="_blank">💬 WhatsApp Me</a>
+    <a href="mailto:saurabhrai80@gmail.com" class="btn email">📧 Email Me</a>
+  </div>
+
+  <!-- Embedded Google Form -->
+  <h3 style="text-align:center; margin-top:30px;">Or Fill Out This Form</h3>
+  <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSeSmdfrLdy0HOipX13HsW2XZYCfO2Gll6G5b8nS28iGiR1krA/viewform?embedded=true" 
+    width="100%" 
+    height="800" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+  </iframe>
+</section>
+
+<footer>
+  <p>© 2025 Saurabh Rai</p>
+</footer>
+
+</body>
+</html>
