@@ -1,93 +1,126 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Your Name</title>
-  <meta name="description" content="Portfolio page highlighting education, work experience, and publications." />
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --accent1:#7c3aed;
-      --accent2:#06b6d4;
-      --maxw:900px;
-      --radius:14px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg), #071028 120%);color:#e6eef6}
-    .container{max-width:var(--maxw);margin:36px auto;padding:28px}
-    h1,h2,h3{margin:0}
-    header{text-align:center;margin-bottom:30px}
-    h1{font-size:32px;margin-bottom:6px}
-    p.lead{color:var(--muted)}
-
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.6);margin-bottom:20px}
-    .section-title{margin-bottom:14px;color:var(--accent2);font-weight:600}
-
-    .timeline{display:flex;flex-direction:column;gap:16px}
-    .item h4{margin:0;font-size:18px}
-    .item .muted{color:var(--muted);font-size:14px;margin:2px 0 8px}
-
-    ul.publications{padding-left:18px;color:var(--muted)}
-    ul.publications li{margin-bottom:8px}
-
-    footer{text-align:center;margin-top:20px;color:var(--muted);font-size:13px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #333;
+        }
+        .project {
+            margin-bottom: 20px;
+        }
+        .project h3 {
+            margin: 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
     <header>
-      <h1 id="name">Your Name</h1>
-      <p class="lead">Mechanical Engineer • FEA & CAE Enthusiast</p>
+        <h1>Your Portfolio</h1>
     </header>
 
-    <section class="card">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-        <div class="item">
-          <h4>B.Tech — Mechanical Engineering</h4>
-          <div class="muted">Your College / Institute (2016 — 2020)</div>
-          <p class="muted">Focused on structural analysis, design, and applied mechanics. Completed projects on FEA and materials testing.</p>
-        </div>
-        <div class="item">
-          <h4>M.Tech — Specialization</h4>
-          <div class="muted">Your College / Institute (2020 — 2022)</div>
-          <p class="muted">Research in advanced CAE methods and multiphysics simulations. Thesis related to fatigue and fracture mechanics.</p>
-        </div>
-      </div>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm [Your Name], and I am a researcher with a focus on materials science and computational modeling. Below are some of my projects and experiences.</p>
     </section>
 
-    <section class="card">
-      <h2 class="section-title">Work Experience</h2>
-      <div class="timeline">
-        <div class="item">
-          <h4>FEA / Mechanical Engineer</h4>
-          <div class="muted">Company / Freelance (2022 — Present)</div>
-          <p class="muted">Performed structural, thermal, and fatigue analyses using Abaqus. Automated workflows with Python. Delivered validated design solutions for industrial and biomedical applications.</p>
-        </div>
-        <div class="item">
-          <h4>Research Intern</h4>
-          <div class="muted">Institute / Lab (2020 — 2021)</div>
-          <p class="muted">Worked on experimental validation of finite element models. Contributed to technical reports and supported publication work.</p>
-        </div>
-      </div>
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li><strong>PhD in Materials Science</strong> - Shiv Nadar University (2021-2025)</li>
+            <p>Worked on dynamic stiffness methods for nanostructures. Developed FGM material models using Abaqus with UMAT subroutines and validated results. Explored analytical modeling of thermoelectric materials.</p>
+            <li><strong>M.Tech in Mechanical Engineering</strong> - [University Name] (2017-2019)</li>
+            <p>Focused on Incremental Forming and Friction Stir Processing. Performed simulations and experiments on friction stir processing (FEA) for predicting optimal feed and spin for spindles.</p>
+            <li><strong>Bachelor's in Mechanical Engineering</strong> - [University Name] (2013-2017)</li>
+        </ul>
     </section>
 
-    <section class="card">
-      <h2 class="section-title">Publications</h2>
-      <ul class="publications">
-        <li><strong>Author Name</strong>, Co-authors. <em>Title of Paper</em>. Journal/Conference, Year.</li>
-        <li><strong>Author Name</strong>, Co-authors. <em>Title of Paper</em>. Journal/Conference, Year.</li>
-        <li><strong>Author Name</strong>, Co-authors. <em>Title of Paper</em>. Journal/Conference, Year.</li>
-      </ul>
+    <section id="projects">
+        <h2>Projects</h2>
+        
+        <div class="project">
+            <h3>Incremental Forming Simulation and Experimentation</h3>
+            <p><strong>Period:</strong> 2017-2019</p>
+            <p>During my M.Tech, I worked on experimental and simulation studies of Incremental Forming under the guidance of Prof. Anupam Aggrawal. I focused on simulating the forming process and validating it with experimental data.</p>
+        </div>
+
+        <div class="project">
+            <h3>Friction Stir Processing (FEA)</h3>
+            <p><strong>Period:</strong> 2017-2019</p>
+            <p>Worked on friction stir processing to predict the optimal feed and spin for spindles. Used FEA to model and optimize the process for better material properties and productivity.</p>
+        </div>
+
+        <div class="project">
+            <h3>Formability Analysis of Beta Titanium</h3>
+            <p><strong>Period:</strong> 2020-2021</p>
+            <p>During my tenure at BITS Hyderabad, I worked on a DRDO-sponsored project on formability analysis of beta titanium under the guidance of Dr. Kurra Suresh. The project involved advanced material testing and simulation.</p>
+        </div>
+
+        <div class="project">
+            <h3>FGM Material Modeling in Abaqus</h3>
+            <p><strong>Period:</strong> 2021-2025</p>
+            <p>As part of my PhD, I developed a Finite Gradient Material (FGM) model in Abaqus using UMAT subroutine and validated the results with experimental data. The work focused on materials with graded properties.</p>
+        </div>
+
+        <div class="project">
+            <h3>Thermoelectric Materials Efficiency Modeling</h3>
+            <p><strong>Period:</strong> 2021-2025</p>
+            <p>Worked on analytical modeling to study the efficiency of thermoelectric materials for energy applications. The research aimed to optimize material properties for better thermoelectric performance.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>If you'd like to connect or learn more about my work, feel free to reach out!</p>
+        <ul>
+            <li>Email: your.email@example.com</li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></li>
+        </ul>
     </section>
 
     <footer>
-      Built with ❤️ — personalize by adding your real education, experience, and publication details.
+        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
     </footer>
-  </div>
+
+    <script>
+        // JavaScript for potential future interactions (e.g., contact form, animations, etc.)
+        console.log("Welcome to My Portfolio!");
+    </script>
 </body>
 </html>
+
+
+
