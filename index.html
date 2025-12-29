@@ -53,12 +53,176 @@
     <img id="lightbox-img" src="" alt="expanded simulation">
     <p id="lightbox-caption"></p>
   </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Automotive Parts – Interactive Visualization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #020617;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    header p {
+      margin-top: 6px;
+      color: #94a3b8;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      height: calc(100vh - 90px);
+    }
+    .car-area {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #020617, #020617);
+    }
+    svg {
+      width: 90%;
+      max-width: 900px;
+    }
+    .part {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .part:hover {
+      filter: drop-shadow(0 0 10px rgba(56,189,248,0.9));
+    }
+    .highlight {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+    .info {
+      padding: 20px;
+      background: #020617;
+      border-left: 1px solid #1e293b;
+    }
+    .info h2 {
+      margin-top: 0;
+      color: #38bdf8;
+    }
+    .info ul {
+      padding-left: 18px;
+    }
+    .info li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Interactive Automotive Parts Overview</h1>
+  <p>Click on a highlighted part to understand its function and CAE application</p>
+</header>
+
+<div class="layout">
+
+  <!-- Car Visualization -->
+  <div class="car-area">
+    <svg viewBox="0 0 900 300">
+      <!-- Car Body -->
+      <rect x="150" y="120" width="600" height="80" rx="40" fill="#334155" />
+      <rect x="250" y="80" width="350" height="60" rx="30" fill="#475569" />
+
+      <!-- Wheels -->
+      <circle cx="280" cy="210" r="40" fill="#020617" />
+      <circle cx="620" cy="210" r="40" fill="#020617" />
+
+      <!-- Engine Block -->
+      <rect id="engine" class="part highlight" x="300" y="100" width="90" height="50" fill="#ef4444" onclick="showInfo('engine')" />
+
+      <!-- Bush -->
+      <circle id="bush" class="part highlight" cx="280" cy="210" r="18" fill="#22c55e" onclick="showInfo('bush')" />
+
+      <!-- Gasket -->
+      <rect id="gasket" class="part highlight" x="300" y="155" width="120" height="6" fill="#facc15" onclick="showInfo('gasket')" />
+
+      <!-- Brake -->
+      <circle id="brake" class="part highlight" cx="620" cy="210" r="22" fill="#38bdf8" onclick="showInfo('brake')" />
+    </svg>
+  </div>
+
+  <!-- Info Panel -->
+  <div class="info" id="infoPanel">
+    <h2>Select a Part</h2>
+    <p>Click on any animated component in the car to see its application.</p>
+  </div>
+
+</div>
+
+<script>
+  function showInfo(part) {
+    const panel = document.getElementById('infoPanel');
+
+    if (part === 'engine') {
+      panel.innerHTML = `
+        <h2>Engine Block</h2>
+        <ul>
+          <li>Main power generating unit</li>
+          <li>Subjected to thermal + mechanical loads</li>
+          <li>FEA: Thermal stress, fatigue, vibration</li>
+          <li>Materials: Cast iron / Aluminum alloys</li>
+        </ul>`;
+    }
+
+    if (part === 'bush') {
+      panel.innerHTML = `
+        <h2>Suspension Bush</h2>
+        <ul>
+          <li>Isolates vibration and noise</li>
+          <li>Allows controlled compliance</li>
+          <li>FEA: Hyperelastic, viscoelastic analysis</li>
+          <li>NVH critical component</li>
+        </ul>`;
+    }
+
+    if (part === 'gasket') {
+      panel.innerHTML = `
+        <h2>Gasket</h2>
+        <ul>
+          <li>Seals fluids and gases</li>
+          <li>Works under bolt preload</li>
+          <li>FEA: Contact pressure, leakage, fatigue</li>
+          <li>Metal / elastomer / composite</li>
+        </ul>`;
+    }
+
+    if (part === 'brake') {
+      panel.innerHTML = `
+        <h2>Brake Assembly</h2>
+        <ul>
+          <li>Converts kinetic energy to heat</li>
+          <li>Safety-critical component</li>
+          <li>FEA: Thermal, wear, vibration (squeal)</li>
+          <li>High temperature durability</li>
+        </ul>`;
+    }
+  }
+</script>
 
   <footer>
     <p>© 2025 Saurabh Rai • <a href="mailto:saurabhrai80@gmail.com">saurabhrai80@gmail.com</a></p>
   </footer>
 </body>
 </html>
+
 
 
 
