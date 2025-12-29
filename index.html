@@ -54,200 +54,178 @@
     <p id="lightbox-caption"></p>
   </div>
 <head>
-   <meta charset="UTF-8" />
-  <title>Automotive Parts – Interactive Visualization</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta charset="UTF-8">
+  <title>Vehicle Systems & CAE Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
+    body{
+      margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+      background:#0f172a;
+      color:#e5e7eb;
     }
-    header {
-      padding: 20px;
-      text-align: center;
-      background: #020617;
+    header{
+      padding:20px;
+      text-align:center;
+      background:#020617;
+      border-bottom:1px solid #1e293b;
     }
-    header h1 {
-      margin: 0;
-      font-size: 26px;
+    header h1{margin:0;font-size:26px;}
+    header p{margin:6px 0 0;color:#94a3b8;}
+
+    .layout{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      height:calc(100vh - 100px);
     }
-    header p {
-      margin-top: 6px;
-      color: #94a3b8;
+
+    .car-area{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#020617;
     }
-    .layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      height: calc(100vh - 90px);
+
+    .car-area img{
+      width:90%;
+      max-width:900px;
+      border-radius:12px;
     }
-    .car-area {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(180deg, #020617, #020617);
+
+    .hotspot{
+      position:absolute;
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      cursor:pointer;
+      animation:pulse 1.5s infinite;
     }
-    svg {
-      width: 90%;
-      max-width: 900px;
+
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(56,189,248,0.7);}
+      70%{box-shadow:0 0 0 20px rgba(56,189,248,0);}
+      100%{box-shadow:0 0 0 0 rgba(56,189,248,0);}
     }
-    .part {
-      cursor: pointer;
-      transition: all 0.3s ease;
+
+    .engine{top:42%;left:38%;background:rgba(249,115,22,0.8);}    
+    .gasket{top:50%;left:38%;background:rgba(59,130,246,0.8);}   
+    .bush{top:65%;left:30%;background:rgba(34,197,94,0.8);}      
+    .brake{top:65%;left:68%;background:rgba(239,68,68,0.8);}    
+
+    .info{
+      padding:22px;
+      background:#020617;
+      border-left:1px solid #1e293b;
+      overflow-y:auto;
     }
-    .part:hover {
-      filter: drop-shadow(0 0 10px rgba(56,189,248,0.9));
-    }
-    .highlight {
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 0.5; }
-      50% { opacity: 1; }
-      100% { opacity: 0.5; }
-    }
-    .info {
-      padding: 20px;
-      background: #020617;
-      border-left: 1px solid #1e293b;
-    }
-    .info h2 {
-      margin-top: 0;
-      color: #38bdf8;
-    }
-    .info ul {
-      padding-left: 18px;
-    }
-    .info li {
-      margin-bottom: 6px;
+
+    .info h2{margin-top:0;color:#38bdf8;}
+    .info ul{padding-left:18px;}
+    .info li{margin-bottom:6px;}
+
+    .tag{
+      display:inline-block;
+      background:#1e293b;
+      padding:4px 10px;
+      border-radius:6px;
+      font-size:12px;
+      margin-bottom:10px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Interactive Automotive Parts Overview</h1>
-  <p>Click on a highlighted part to understand its function and CAE application</p>
+  <h1>Vehicle Systems – Function & CAE Analysis</h1>
+  <p>Hover or click on any highlighted part to understand its engineering role</p>
 </header>
 
 <div class="layout">
 
-  <!-- Car Visualization -->
+  <!-- Car Image Area -->
   <div class="car-area">
-    <svg viewBox="0 0 900 300">
-      <!-- Car Body -->
-      <defs>
-        <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#9ca3af" />
-          <stop offset="100%" stop-color="#4b5563" />
-        </linearGradient>
-        <linearGradient id="engineGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#dc2626" />
-          <stop offset="100%" stop-color="#7f1d1d" />
-        </linearGradient>
-      </defs>
+    <img src="venue_car_systems.gif" alt="Vehicle systems animation">
 
-      <rect x="150" y="120" width="600" height="80" rx="40" fill="#334155" />
-      <rect x="250" y="80" width="350" height="60" rx="30" fill="#475569" />
-
-      <!-- Wheels -->
-      <circle cx="280" cy="210" r="40" fill="#020617" />
-      <circle cx="620" cy="210" r="40" fill="#020617" />
-
-      <!-- Brake Disc -->
-      <circle id="brake" class="part highlight" cx="620" cy="210" r="26" fill="url(#metal)" onclick="showInfo('brake')" />
-      <circle cx="620" cy="210" r="10" fill="#020617" />
-
-      <!-- Suspension Bush -->
-      <g id="bush" class="part highlight" onclick="showInfo('bush')">
-        <circle cx="280" cy="210" r="22" fill="#14532d" />
-        <circle cx="280" cy="210" r="12" fill="#e5e7eb" />
-      </g>
-
-      <!-- Engine Block (More Realistic) -->
-      <g id="engine" class="part highlight" onclick="showInfo('engine')">
-        <rect x="300" y="95" width="110" height="60" rx="8" fill="url(#engineGrad)" />
-        <rect x="410" y="105" width="18" height="40" rx="4" fill="#991b1b" />
-        <rect x="280" y="105" width="18" height="40" rx="4" fill="#991b1b" />
-        <circle cx="320" cy="115" r="4" fill="#111827" />
-        <circle cx="350" cy="115" r="4" fill="#111827" />
-        <circle cx="380" cy="115" r="4" fill="#111827" />
-      </g>
-
-      <!-- Gasket (Cylinder Head Gasket Representation) -->
-      <g id="gasket" class="part highlight" onclick="showInfo('gasket')">
-        <rect x="300" y="160" width="110" height="6" rx="3" fill="#facc15" />
-        <circle cx="325" cy="163" r="2" fill="#854d0e" />
-        <circle cx="355" cy="163" r="2" fill="#854d0e" />
-        <circle cx="385" cy="163" r="2" fill="#854d0e" />
-      </g>
-    </svg>
+    <div class="hotspot engine" onclick="showInfo('engine')"></div>
+    <div class="hotspot gasket" onclick="showInfo('gasket')"></div>
+    <div class="hotspot bush" onclick="showInfo('bush')"></div>
+    <div class="hotspot brake" onclick="showInfo('brake')"></div>
   </div>
 
   <!-- Info Panel -->
   <div class="info" id="infoPanel">
-    <h2>Select a Part</h2>
-    <p>Click on any animated component in the car to see its application.</p>
+    <h2>Select a Vehicle Part</h2>
+    <p>Click on engine, gasket, suspension bush, or brake to see:</p>
+    <ul>
+      <li>Functional role</li>
+      <li>Typical loads</li>
+      <li>CAE / FEA analysis methods</li>
+    </ul>
   </div>
 
 </div>
 
 <script>
-  function showInfo(part) {
-    const panel = document.getElementById('infoPanel');
+function showInfo(part){
+  const panel=document.getElementById('infoPanel');
 
-    if (part === 'engine') {
-      panel.innerHTML = `
-        <h2>Engine Block</h2>
-        <ul>
-          <li>Main power generating unit</li>
-          <li>Subjected to thermal + mechanical loads</li>
-          <li>FEA: Thermal stress, fatigue, vibration</li>
-          <li>Materials: Cast iron / Aluminum alloys</li>
-        </ul>`;
-    }
-
-    if (part === 'bush') {
-      panel.innerHTML = `
-        <h2>Suspension Bush</h2>
-        <ul>
-          <li>Isolates vibration and noise</li>
-          <li>Allows controlled compliance</li>
-          <li>FEA: Hyperelastic, viscoelastic analysis</li>
-          <li>NVH critical component</li>
-        </ul>`;
-    }
-
-    if (part === 'gasket') {
-      panel.innerHTML = `
-        <h2>Gasket</h2>
-        <ul>
-          <li>Seals fluids and gases</li>
-          <li>Works under bolt preload</li>
-          <li>FEA: Contact pressure, leakage, fatigue</li>
-          <li>Metal / elastomer / composite</li>
-        </ul>`;
-    }
-
-    if (part === 'brake') {
-      panel.innerHTML = `
-        <h2>Brake Assembly</h2>
-        <ul>
-          <li>Converts kinetic energy to heat</li>
-          <li>Safety-critical component</li>
-          <li>FEA: Thermal, wear, vibration (squeal)</li>
-          <li>High temperature durability</li>
-        </ul>`;
-    }
+  if(part==='engine'){
+    panel.innerHTML=`
+      <span class='tag'>Powertrain</span>
+      <h2>Engine Block</h2>
+      <ul>
+        <li>Main structural component of engine</li>
+        <li>Loads: combustion pressure, inertia, thermal gradients</li>
+        <li>CAE: Static stress, thermal stress, fatigue</li>
+        <li>Dynamic: Modal & harmonic for vibration</li>
+      </ul>`;
   }
+
+  if(part==='gasket'){
+    panel.innerHTML=`
+      <span class='tag'>Sealing</span>
+      <h2>Head Gasket</h2>
+      <ul>
+        <li>Seals combustion gases, oil, coolant</li>
+        <li>Works under bolt preload</li>
+        <li>CAE: Contact pressure, leakage analysis</li>
+        <li>Fatigue & thermal cycling critical</li>
+      </ul>`;
+  }
+
+  if(part==='bush'){
+    panel.innerHTML=`
+      <span class='tag'>NVH</span>
+      <h2>Suspension Bush</h2>
+      <ul>
+        <li>Isolates vibration and noise</li>
+        <li>Allows controlled compliance</li>
+        <li>CAE: Hyperelastic & viscoelastic analysis</li>
+        <li>Dynamic stiffness & durability</li>
+      </ul>`;
+  }
+
+  if(part==='brake'){
+    panel.innerHTML=`
+      <span class='tag'>Safety</span>
+      <h2>Brake System</h2>
+      <ul>
+        <li>Converts kinetic energy to heat</li>
+        <li>Loads: friction, thermal flux</li>
+        <li>CAE: Thermal, wear, brake squeal</li>
+        <li>Transient & steady-state analysis</li>
+      </ul>`;
+  }
+}
 </script>
+
   <footer>
     <p>© 2025 Saurabh Rai • <a href="mailto:saurabhrai80@gmail.com">saurabhrai80@gmail.com</a></p>
   </footer>
 </body>
 </html>
+
 
 
 
