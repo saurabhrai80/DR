@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Key Learning Concepts – FEA Analysis Types</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #222;
+    }
+    header {
+      background: #1e293b;
+      color: #fff;
+      padding: 20px 30px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    header p {
+      margin: 5px 0 0;
+      opacity: 0.9;
+    }
+    .container {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #0f172a;
+    }
+    .tag {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 18px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .viz {
+      margin-top: 15px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      font-size: 13px;
+      color: #475569;
+    }
+    svg {
+      width: 100%;
+      height: 140px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Finite Element Analysis – Key Learning Concepts</h1>
+  <p>Static, Solver Fundamentals, Dynamic, Modal, and Steady-State Direct Analysis</p>
+</header>
+
+<div class="container">
+
+  <!-- Static Analysis -->
+  <div class="card">
+    <span class="tag">Static</span>
+    <h2>Static Analysis</h2>
+    <ul>
+      <li>Loads are constant or slowly varying with time</li>
+      <li>Inertia and damping effects are neglected</li>
+      <li>Used for stress, strain, deformation evaluation</li>
+      <li>Linear and nonlinear material/contact behavior</li>
+    </ul>
+    <div class="viz">
+      Stress distribution under constant load
+      <svg viewBox="0 0 300 120">
+        <rect x="40" y="40" width="200" height="40" fill="#94a3b8" />
+        <line x1="40" y1="30" x2="240" y2="30" stroke="#ef4444" stroke-width="3" />
+        <text x="120" y="25" font-size="12">Applied Load</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Solver -->
+  <div class="card">
+    <span class="tag">Solver</span>
+    <h2>Solver Fundamentals</h2>
+    <ul>
+      <li>Transforms governing equations into matrix form</li>
+      <li>Direct solvers: Accurate but memory intensive</li>
+      <li>Iterative solvers: Efficient for large models</li>
+      <li>Convergence and numerical stability are critical</li>
+    </ul>
+    <div class="viz">
+      Matrix equation solving
+      <svg viewBox="0 0 300 120">
+        <text x="30" y="60" font-size="14">[K]{u} = {F}</text>
+        <rect x="150" y="35" width="90" height="50" fill="#cbd5e1" />
+        <text x="165" y="65" font-size="12">Solver</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Dynamic Analysis -->
+  <div class="card">
+    <span class="tag">Dynamic</span>
+    <h2>Dynamic Analysis</h2>
+    <ul>
+      <li>Loads vary with time</li>
+      <li>Includes mass and damping effects</li>
+      <li>Used for impact, shock, vibration problems</li>
+      <li>Time integration methods control accuracy</li>
+    </ul>
+    <div class="viz">
+      Response vs time
+      <svg viewBox="0 0 300 120">
+        <polyline points="10,80 40,40 70,90 100,50 130,85 160,55 190,80" fill="none" stroke="#2563eb" stroke-width="3" />
+        <line x1="10" y1="90" x2="220" y2="90" stroke="#000" />
+        <text x="200" y="105" font-size="12">Time</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Modal Analysis -->
+  <div class="card">
+    <span class="tag">Modal</span>
+    <h2>Modal Analysis</h2>
+    <ul>
+      <li>Determines natural frequencies and mode shapes</li>
+      <li>No external loads required</li>
+      <li>Foundation for dynamic and vibration analysis</li>
+      <li>Avoids resonance-related failures</li>
+    </ul>
+    <div class="viz">
+      Mode shapes
+      <svg viewBox="0 0 300 120">
+        <polyline points="30,80 80,40 130,80 180,40 230,80" fill="none" stroke="#16a34a" stroke-width="3" />
+        <text x="90" y="20" font-size="12">1st & 2nd Modes</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Steady State Direct -->
+  <div class="card">
+    <span class="tag">Steady-State</span>
+    <h2>Steady-State Direct Analysis</h2>
+    <ul>
+      <li>Used for harmonic (sinusoidal) loading</li>
+      <li>Response at specific excitation frequencies</li>
+      <li>Captures resonance behavior accurately</li>
+      <li>Common in NVH and vibration durability</li>
+    </ul>
+    <div class="viz">
+      Amplitude vs frequency
+      <svg viewBox="0 0 300 120">
+        <polyline points="20,90 60,70 100,30 140,70 180,90" fill="none" stroke="#dc2626" stroke-width="3" />
+        <text x="110" y="25" font-size="12">Resonance Peak</text>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Designed for conceptual understanding of FEA analysis types
+</footer>
+
+</body>
+</html>
